@@ -1,0 +1,65 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "🚀 Launch Chrome (Vite Dev)",
+            "url": "http://localhost:5175",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "/@/*": "${webRoot}/*",
+                "/src/*": "${webRoot}/src/*"
+            },
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "preLaunchTask": "npm: dev",
+            "postDebugTask": ""
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "attach",
+            "name": "🔗 Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "/@/*": "${webRoot}/*",
+                "/src/*": "${webRoot}/src/*"
+            }
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "🌐 Launch Chrome (Production Build)",
+            "url": "http://localhost:4173",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "preLaunchTask": "npm: preview"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "⚙️ Debug Vite Server",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "🎯 Launch Server + Debug (Recommended)",
+            "configurations": [
+                "🚀 Launch Chrome (Vite Dev)"
+            ],
+            "preLaunchTask": "npm: dev",
+            "stopAll": true
+        }
+    ]
+}
